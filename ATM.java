@@ -34,4 +34,15 @@ public class ATM {
             throw new Exception("Account does not exist");
         }
     }
+
+    public double withdrawMoney(String userId, double amount) throws Exception{
+        double currBalance = accounts.get(userId);
+        if(currBalance >= amount){
+            accounts.replace(userId, currBalance - amount);
+            return amount;
+        }
+        else{
+            throw new Exception("Can't withdraw money because you're broke AF lmaooo");
+        }
+    }
 }
