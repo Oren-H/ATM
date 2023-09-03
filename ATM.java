@@ -24,4 +24,14 @@ public class ATM {
             throw new Exception("Account does not exist");
         }
     }
+
+    public double depositMoney(String userId, double amount) throws Exception{
+        if(accounts.containsKey(userId)){
+             accounts.replace(userId, accounts.get(userId) + amount);
+             return amount;
+        }
+        else{
+            throw new Exception("Account does not exist");
+        }
+    }
 }
