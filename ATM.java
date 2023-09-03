@@ -15,4 +15,13 @@ public class ATM {
             throw new Exception("User already exists");
         }
     }
+
+    public double checkBalance(String userId) throws Exception{
+        if(accounts.containsKey(userId)){
+            return accounts.get(userId);
+        }
+        else{
+            throw new Exception("Account does not exist");
+        }
+    }
 }
