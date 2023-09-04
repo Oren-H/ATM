@@ -15,6 +15,7 @@ public class ATM {
             throw new Exception("User already exists");
         }
     }
+<<<<<<< HEAD
 
     public double checkBalance(String userId) throws Exception{
         if(accounts.containsKey(userId)){
@@ -45,4 +46,6 @@ public class ATM {
             throw new Exception("Can't withdraw money because you're broke AF lmaooo");
         }
     }
+=======
+>>>>>>> parent of 7e94587... Added CheckBalance Method
 }
