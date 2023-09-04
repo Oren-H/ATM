@@ -21,7 +21,7 @@ public class ATM {
             return accounts.get(userId);
         }
         else{
-            throw new Exception("Account does not exist");
+            throw new Exception("No account found under " + userId);
         }
     }
 
@@ -43,7 +43,9 @@ public class ATM {
         }
     }
 
-    //public boolean transferMoney(String fromAccount, String toAccount, double amount){
-
-    //}
+    public boolean transferMoney(String fromAccount, String toAccount, double amount) throws Exception{
+        withdrawMoney(fromAccount, amount);
+        depositMoney(toAccount, amount);
+        return true;
+    }
 }
