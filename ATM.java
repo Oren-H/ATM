@@ -15,7 +15,6 @@ public class ATM {
             throw new Exception("User already exists");
         }
     }
-<<<<<<< HEAD
 
     public double checkBalance(String userId) throws Exception{
         if(accounts.containsKey(userId)){
@@ -27,25 +26,24 @@ public class ATM {
     }
 
     public double depositMoney(String userId, double amount) throws Exception{
-        if(accounts.containsKey(userId)){
-             accounts.replace(userId, accounts.get(userId) + amount);
-             return amount;
-        }
-        else{
-            throw new Exception("Account does not exist");
-        }
+        double balance = checkBalance(userId);
+        accounts.replace(userId, balance + amount);
+        return balance;
+
     }
 
     public double withdrawMoney(String userId, double amount) throws Exception{
-        double currBalance = accounts.get(userId);
-        if(currBalance >= amount){
-            accounts.replace(userId, currBalance - amount);
+        double balance = checkBalance(userId);
+        if(balance >= amount){
+            accounts.replace(userId, balance - amount);
             return amount;
         }
         else{
             throw new Exception("Can't withdraw money because you're broke AF lmaooo");
         }
     }
-=======
->>>>>>> parent of 7e94587... Added CheckBalance Method
+
+    //public boolean transferMoney(String fromAccount, String toAccount, double amount){
+
+    //}
 }
