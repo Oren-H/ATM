@@ -1,4 +1,8 @@
 import java.util.HashMap;
+import java.util.Map;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 public class ATM {
     private HashMap <String, Double> accounts = new HashMap<>(); 
@@ -47,5 +51,18 @@ public class ATM {
         withdrawMoney(fromAccount, amount);
         depositMoney(toAccount, amount);
         return true;
+    }
+
+    public void audit(){
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("AccountAudit.txt"));
+            for (Map.Entry<String, Double> entry : accounts.entrySet()) {
+                bw.write(entry.getKey() + ": " + entry.getValue() + "\n");
+                bw.close();
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
