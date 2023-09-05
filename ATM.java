@@ -5,10 +5,10 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 
 public class ATM {
-    private HashMap <String, Double> accounts = new HashMap<>(); 
+    private HashMap <String, Double> accounts; 
 
-    public ATM (HashMap<String, Double> accounts){
-        this.accounts = accounts;
+    public ATM (){
+        this.accounts = new HashMap<>();
     }
 
     public void openAccount(String userId, double amount) throws Exception{
@@ -58,8 +58,8 @@ public class ATM {
             BufferedWriter bw = new BufferedWriter(new FileWriter("AccountAudit.txt"));
             for (Map.Entry<String, Double> entry : accounts.entrySet()) {
                 bw.write(entry.getKey() + ": " + entry.getValue() + "\n");
-                bw.close();
             }
+            bw.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
